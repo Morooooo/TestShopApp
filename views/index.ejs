@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+     <script src="https://www.paypal.com/sdk/js?client-id=<%= paypalClientId %>"></script>
+     <script src="./script.js" type="module"></script>
+     <style>body {
+    background-color: rgb(234, 200, 227);
+  }
+  div {
+      width: 100px;
+      height:170px;
+      border: 5px solid rgb(184, 244, 72);
+      padding: 50px;
+      margin: 20px;
+      display: inline-block;
+    }
+    img {
+        width: 60px;
+        height: 50px
+
+    }
+  h1 {
+    color:white;
+   font-size: 30px;
+  }
+  a {
+    color:rgb(242, 171, 29)
+  }
+  p {
+    font-family: verdana;
+    font-size: 10px;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+    <div id="Beroe_FC_hat"> <img src="../images/Beroe_cap.jpeg" title="picture" alt="Beroe_cap.jpeg" >  
+        <h1>Beroe FC hat</h1>
+        <p>Buy for $12</p>
+        
+        <a  href="/Beroe"  >details</a>
+                  </div>
+    <div id="CSKA_FC_hat"><img src="../images/CSKA_FC_cap.jpg" title="image" alt="CSKA_cap.jpg"><h1>CSKA FC hat</h1>
+        <p>Buy for $22</p>
+        <a  href="/CSKA"  >details</a>
+                   </div>
+    <div id="Slavia_FC_hat"><img src="../images/Slavia_cap.jpeg" title="image" alt="Slavia_cap.jpeg"> <h1>Slavia FC hat</h1>
+        <p>Buy for $11</p>
+        <a href="/Slavia"  >details</a>
+                  </div>
+   <script>sessinStorage.setItem('shoppingData',[])</script>
+</body>
+</html>

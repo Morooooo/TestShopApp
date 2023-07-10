@@ -1,0 +1,37 @@
+ <script src="https://www.paypal.com/sdk/js?client-id=<%= paypalClientId %>"></script>
+  
+    <script >
+      
+  paypal.Buttons({
+    createOrder:()=>{
+      let name=document.querySelector('#storeId').innerHTML.split(':')[1]
+      let quan_t_t=document.querySelector('#quantity').value
+        return fetch('/create-order',{
+            method:'POST',
+            headers:{'Content-Type':'application/json' },
+            body:JSON.stringify({
+              //  items:[{id:Number(name),quantity:quan_t_t}],
+        })
+    }) .then(res=>{
+        if (res.ok) return res.json()
+        return res.json().then(json=>Promise.reject(json))
+    }).then(({id}) =>{
+        return id
+    }).catch(e => {console.error(e.error)
+    
+    })
+
+        
+    },
+    onApprove:(data,actions)=>{
+        return  actions.order.capture().then(function(details){
+            alert('Transaction completed by '+ details.payer.name.given_name)
+        })
+
+    }
+       
+      }).render('#paypalBtns')
+     
+
+     </script>
+<div></div>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>body {
+        background-color: rgb(234, 200, 227);
+      }
+      div #CSKA_FC_cap {
+      width: 100px;
+      border: 15px solid rgb(184, 244, 72);
+      padding: 50px;
+      margin: 20px;
+    }
+    img {
+        width: 30px;
+        height: 40px
+
+    }
+      h1 {
+        color: white;
+        text-align: center;
+      }
+      
+      p {
+        font-family: verdana;
+        font-size: 20px;
+        text-align: center;
+      }
+      input {
+        width: 50px;
+        height: 20px;;
+
+      }
+      </style>
+    <title>Paypal Node App</title>
+</head>
+<body>
+    <div id="CSKA_FC_cap">  
+        <img src="../images/CSKA_FC_cap.jpg" title="image" alt="CSKA_cap.jpg">
+        <h1>CSKA FC cap</h1>
+        <p>Buy for $22</p>
+        <p id="storeId">store id:1</p>
+        <input type="number" id="quantity" placeholder="enter quantity">
+        <button type="button" >Add to cart</button>
+           <div id="paypalBtns"><%- include('../buttons/ppl-btns') %></div>    
+           <script>   document.querySelector('button').addEventListener('click',async()=>{
+            const selected={item:document.querySelector("#storeId").innerHTML.split(":")[1],
+            quantity:document.querySelector("#quantity").value}
+        await fetch('/addToCart',{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({items:[{id:selected.item,quantity:selected.quantity}]})
+        })
+           // console.log(selected)
+            })   </script> </div>
+                
+    
+</body>
+</html>
