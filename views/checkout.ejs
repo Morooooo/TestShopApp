@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+</head>
+<body>
+    <h1>Proceed to payment</h1>
+    <div id="paypalBtns"><%- include('../buttons/ppl-btns') %></div> 
+    </div>
+
+    <p><%= cartData.map(x=>storeItems.get(Number(x.id)).name) %>  </p>
+    <p>Total : <%= cartData.reduce((sum,item)=>{   
+        return sum +  storeItems.get(Number(item.id)).price * item.quantity},0) %></p>
+</body>
+</html>
